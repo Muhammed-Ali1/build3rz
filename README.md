@@ -16,6 +16,16 @@ This project was built as part of the **Etherlink Summer of Code Hackathon**.
 
 ---
 
+## 🌐 Where Etherlink is Used
+
+This app integrates **Sequence Connect in WaaS mode** for seamless wallet interactions on the **Etherlink blockchain**.
+
+### Relevant Configuration Files
+- [`src/config.ts`](./src/config.ts)
+- [`src/lib/sequence.ts`](./src/lib/sequence.ts)
+
+---
+
 ## 🛠️ Tech Stack
 - **Frontend**: React + TypeScript  
 - **Styling**: Tailwind CSS  
