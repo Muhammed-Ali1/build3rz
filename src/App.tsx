@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import PostJob from './pages/PostJob'
+import BrowseJobs from './pages/BrowseJobs'
+import Profile from './pages/Profile'
+import JobDetail from './pages/JobDetail'
+import Market from './pages/Market'
+import BottomNav from './components/BottomNav'
+import { JobProvider } from './context/JobContext'
+import SignUp from './pages/SignUp'
+import { initSequence } from './lib/sequence'
 
 function App() {
+  useEffect(() => {
+    initSequence()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <JobProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<PostJob />} />
+          <Route path="/browse" element={<BrowseJobs />} />
+          <Route path="/job/:id" element={<JobDetail />} />
+          <Route path="/market" element={<Market />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+        <BottomNav />
+      </Router>
+    </JobProvider>
+  )
 }
 
-export default App;
+export default App
+
+
+
+
+
+
